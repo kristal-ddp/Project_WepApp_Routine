@@ -143,6 +143,10 @@ layout_user
     margin-bottom: 0;
 }
 
+.select_routine {
+    color: #6c757d;
+}
+
 .col-routine-2 {
     text-align: center;
 }

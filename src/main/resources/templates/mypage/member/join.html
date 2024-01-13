@@ -52,8 +52,13 @@
                 <!-- gender -->
                 <div class="form-group col-md-12 mb-4 mb_routine">
                     <div>
-                        <input type="text" class="form-control input-lg input_routine"
-                               th:field="*{gender}" th:errorclass="fieldErrors" placeholder="성별">
+                        <select class="form-control input_routine select_routine"
+                                th:field="*{gender}" th:errorclass="fieldErrors">
+                            <option value="" selected>성별</option>
+                            <option value="남자">남자</option>
+                            <option value="여자">여자</option>
+                            <option value="기타">선택안함</option>
+                        </select>
                     </div>
                     <div class="error_routine" th:errors="*{gender}"></div>
                 </div>
@@ -63,6 +68,18 @@
                     <div>
                         <input type="text" class="form-control input-lg input_routine"
                                th:field="*{birth}" th:errorclass="fieldErrors" placeholder="생년월일">
+<!--                        <select class="form-control input_routine select_routine" required-->
+<!--                                th:field="*{year}" th:errorclass="fieldErrors">년도-->
+<!--                            <option selected disabled>년도</option>-->
+<!--                        </select>-->
+<!--                        <select class="form-control input_routine select_routine" required-->
+<!--                                th:field="*{month}" th:errorclass="fieldErrors">-->
+<!--                            <option selected disabled>월</option>-->
+<!--                        </select>-->
+<!--                        <select class="form-control input_routine select_routine" required-->
+<!--                                th:field="*{day}" th:errorclass="fieldErrors">-->
+<!--                            <option selected disabled>일</option>-->
+<!--                        </select>-->
                     </div>
                     <div class="fieldError error_routine" th:errors="*{birth}"></div>
                 </div>
