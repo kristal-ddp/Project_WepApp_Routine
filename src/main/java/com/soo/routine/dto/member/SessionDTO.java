@@ -17,7 +17,10 @@ public class SessionDTO implements Serializable {
     private String email; // 이메일 주소
     private String nickname; // 닉네임
     private String gender; // 성별
-    private LocalDate birth; // 생년월일
+//    private LocalDate birth; // 생년월일
+    private Integer year; // 년도
+    private Integer month; // 월
+    private Integer day; // 일
 
     public SessionDTO(Member member) {
         this.memberId = member.getId();
@@ -25,7 +28,10 @@ public class SessionDTO implements Serializable {
         this.email = member.getEmail();
         this.nickname = member.getNickname();
         this.gender = member.getGender();
-        this.birth = member.getBirth();
+//        this.birth = member.getBirth();
+        this.year = member.getYear();
+        this.month = member.getMonth();
+        this.day = member.getDay();
     }
     
 }

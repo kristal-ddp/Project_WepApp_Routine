@@ -20,7 +20,10 @@ public class MemberReadDTO {
     private String email; // 이메일 주소
     private String nickname; // 닉네임
     private String gender; // 성별
-    private LocalDate birth; // 생년월일
+//    private LocalDate birth; // 생년월일
+	private Integer year; // 년도
+	private Integer month; // 월
+	private Integer day; // 일
 
 	public MemberReadDTO(Member member) { // Entity → DTO
 		memberId = member.getId();
@@ -29,7 +32,10 @@ public class MemberReadDTO {
 		email = member.getEmail();
 		nickname = member.getNickname();
 		gender = member.getGender();
-		birth = member.getBirth();
+//		birth = member.getBirth();
+		year = member.getYear();
+		month = member.getMonth();
+		day = member.getDay();
 	}
 
 }

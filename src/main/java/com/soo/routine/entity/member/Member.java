@@ -9,6 +9,7 @@ import org.hibernate.annotations.DynamicUpdate;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Year;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +39,11 @@ public class Member {
     private String nickname; // 닉네임
 
     private String gender; // 성별
-    private LocalDate birth; // 생년월일
+    
+//    private LocalDate birth; // 생년월일
+    private Integer year; // 년도
+    private Integer month; // 월
+    private Integer day; // 일
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<Routine> routineList = new ArrayList<>();
@@ -52,14 +57,19 @@ public class Member {
     // 회원가입
     @Builder
     public Member(Role role, LocalDateTime joinDate, String email,
-                  String pwd, String nickname, String gender, LocalDate birth){
+                  String pwd, String nickname, String gender,
+                  Integer year, Integer month, Integer day){
+//                  String pwd, String nickname, String gender, LocalDate birth){
         this.role = role;
         this.joinDate = joinDate;
         this.email = email;
         this.pwd = pwd;
         this.nickname = nickname;
         this.gender = gender;
-        this.birth = birth;
+//        this.birth = birth;
+        this.year = year;
+        this.month = month;
+        this.day = day;
     }
 
     // 회원정보 수정

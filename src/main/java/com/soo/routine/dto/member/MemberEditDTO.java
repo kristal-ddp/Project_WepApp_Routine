@@ -36,14 +36,21 @@ public class MemberEditDTO {
     private String nickname; // 닉네임
 
     private String gender; // 성별
-    private String birth; // 생년월일
+
+//    private String birth; // 생년월일
+    private Integer year; // 년도
+    private Integer month; // 월
+    private Integer day; // 일
 
     public MemberEditDTO(Member member) {
         this.memberId = member.getId();
         this.email = member.getEmail();
         this.nickname = member.getNickname();
         this.gender = member.getGender();
-        this.birth = String.valueOf(member.getBirth());
+//        this.birth = String.valueOf(member.getBirth());
+        this.year = member.getYear();
+        this.month = member.getMonth();
+        this.day = member.getDay();
     }
 
     public Member toEntity(){
@@ -54,7 +61,10 @@ public class MemberEditDTO {
                 .pwd(newPwd)
                 .nickname(nickname)
                 .gender(gender)
-                .birth(LocalDate.parse(birth))
+//                .birth(LocalDate.parse(birth))
+                .year(year)
+                .month(month)
+                .day(day)
                 .build();
     }
 
