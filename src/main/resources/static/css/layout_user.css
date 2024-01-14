@@ -147,6 +147,15 @@ layout_user
     color: #6c757d;
 }
 
+.select_divide {
+    float: left;
+    width: 32%;
+}
+
+.select_center {
+    margin: 0 9px;
+}
+
 .col-routine-2 {
     text-align: center;
 }

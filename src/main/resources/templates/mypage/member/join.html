@@ -68,17 +68,17 @@
                     <div>
 <!--                        <input type="text" class="form-control input-lg input_routine"-->
 <!--                               th:field="*{birth}" th:errorclass="fieldErrors" placeholder="생년월일">-->
-                        <select class="form-control input_routine select_routine" required
-                                th:field="*{year}" th:errorclass="fieldErrors" id="year">
-                            <option value="" selected disabled>년도</option>
+                        <select class="form-control input_routine select_routine select_divide"
+                                th:field="*{year}" th:errorclass="fieldErrors">
+                            <option value="" selected>년도</option>
                         </select>
-                        <select class="form-control input_routine select_routine" required
-                                th:field="*{month}" th:errorclass="fieldErrors" id="month">
-                            <option value="" selected disabled>월</option>
+                        <select class="form-control input_routine select_routine select_divide select_center"
+                                th:field="*{month}" th:errorclass="fieldErrors">
+                            <option value="" selected>월</option>
                         </select>
-                        <select class="form-control input_routine select_routine" required
-                                th:field="*{day}" th:errorclass="fieldErrors" id="day">
-                            <option value="" selected disabled>일</option>
+                        <select class="form-control input_routine select_routine select_divide"
+                                th:field="*{day}" th:errorclass="fieldErrors">
+                            <option value="" selected>일</option>
                         </select>
                     </div>
 <!--                    <div class="fieldError error_routine" th:errors="*{birth}"></div>-->
