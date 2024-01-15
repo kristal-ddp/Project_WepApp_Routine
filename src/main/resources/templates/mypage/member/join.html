@@ -55,9 +55,9 @@
                         <select class="form-control input_routine select_routine"
                                 th:field="*{gender}" th:errorclass="fieldErrors">
                             <option value="" selected>성별</option>
-                            <option value="남자">남자</option>
-                            <option value="여자">여자</option>
-                            <option value="기타">선택안함</option>
+                            <option value="남자" th:value="남자">남자</option>
+                            <option value="여자" th:value="여자">여자</option>
+                            <option value="기타" th:value="기타">선택안함</option>
                         </select>
                     </div>
                     <div class="error_routine" th:errors="*{gender}"></div>
@@ -69,20 +69,26 @@
                         <select class="form-control input_routine select_routine select_divide"
                                 th:field="*{year}" th:errorclass="fieldErrors">
                             <option value="" selected>년도</option>
+                            <option th:each="yearOption : ${#numbers.sequence(1900, 2025)}" th:text="${yearOption}" th:value="${yearOption}"></option>
                         </select>
                         <select class="form-control input_routine select_routine select_divide select_center"
                                 th:field="*{month}" th:errorclass="fieldErrors">
                             <option value="" selected>월</option>
+                            <option th:each="monthOption : ${#numbers.sequence(1, 12)}" th:text="${monthOption}" th:value="${monthOption}"></option>
                         </select>
                         <select class="form-control input_routine select_routine select_divide"
                                 th:field="*{day}" th:errorclass="fieldErrors">
                             <option value="" selected>일</option>
+                            <option th:each="dayOption : ${#numbers.sequence(1, 31)}" th:text="${dayOption}" th:value="${dayOption}"></option>
+                        </select>
                         </select>
                     </div>
-<!--                    <div class="fieldError error_routine" id="birth_error"></div>-->
+<!--                    <div class="fieldError error_routine" th:errors="*{year}"></div>-->
+<!--                    <div class="fieldError error_routine" th:errors="*{month}"></div>-->
+<!--                    <div class="fieldError error_routine" th:errors="*{day}"></div>-->
 
                     <div class="fieldError error_routine" id="birth_error"
-                         th:if="${#fields.hasErrors('year') or #fields.hasErrors('month') or #fields.hasErrors('day')}"
+                         th:if="${#fields.hasErrors('year') || #fields.hasErrors('month') || #fields.hasErrors('day')}"
                          th:errors="*{year}">
                     </div>
 
