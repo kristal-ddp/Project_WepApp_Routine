@@ -66,30 +66,11 @@
                 <!-- birth -->
                 <div class="form-group col-md-12 mb-4 mb_routine">
                     <div>
-                        <select class="form-control input_routine select_routine select_divide"
-                                th:field="*{year}" th:errorclass="fieldErrors">
-                            <option value="" selected>년도</option>
-                            <option th:each="yearOption : ${#numbers.sequence(1900, 2025)}" th:text="${yearOption}" th:value="${yearOption}"></option>
-                        </select>
-                        <select class="form-control input_routine select_routine select_divide select_center"
-                                th:field="*{month}" th:errorclass="fieldErrors">
-                            <option value="" selected>월</option>
-                            <option th:each="monthOption : ${#numbers.sequence(1, 12)}" th:text="${monthOption}" th:value="${monthOption}"></option>
-                        </select>
-                        <select class="form-control input_routine select_routine select_divide"
-                                th:field="*{day}" th:errorclass="fieldErrors">
-                            <option value="" selected>일</option>
-                            <option th:each="dayOption : ${#numbers.sequence(1, 31)}" th:text="${dayOption}" th:value="${dayOption}"></option>
-                        </select>
-                        </select>
-                    </div>
-<!--                    <div class="fieldError error_routine" th:errors="*{year}"></div>-->
-<!--                    <div class="fieldError error_routine" th:errors="*{month}"></div>-->
-<!--                    <div class="fieldError error_routine" th:errors="*{day}"></div>-->
-
-                    <div class="fieldError error_routine" id="birth_error"
-                         th:if="${#fields.hasErrors('year') || #fields.hasErrors('month') || #fields.hasErrors('day')}"
-                         th:errors="*{year}">
+                        <div>
+                            <input type="text" class="form-control input-lg input_routine"
+                                   th:field="*{birth}" th:errorclass="fieldErrors" placeholder="생년월일  ex) 19930214">
+                        </div>
+                        <div class="fieldError error_routine" th:errors="*{birth}"></div>
                     </div>
 
                 </div>

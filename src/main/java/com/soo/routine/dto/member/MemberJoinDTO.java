@@ -36,13 +36,9 @@ public class MemberJoinDTO {
     @NotBlank(message="성별을 선택하세요.")
     private String gender; // 성별
 
-    @NotNull(message = "생년월일을 선택하세요.")
-    private Integer year; // 년도
-
-    @NotNull(message = "생년월일을 선택하세요.")
-    private Integer month; // 월
-
-    @NotNull(message = "생년월일을 선택하세요.")
-    private Integer day; // 일
+    @NotBlank(message = "")
+    @Pattern(regexp = "^[0-9]{8}$",
+            message = "생년월일 형식에 맞게 입력하세요.")
+    private String birth; // 생년월일
 
 }

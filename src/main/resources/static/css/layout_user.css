@@ -156,6 +156,10 @@ layout_user
     margin: 0 9px;
 }
 
+.select_other {
+    margin-bottom: 0;
+}
+
 .col-routine-2 {
     text-align: center;
 }

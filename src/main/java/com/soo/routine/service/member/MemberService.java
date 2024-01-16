@@ -43,9 +43,7 @@ public class MemberService {
 
         Member member = new Member(Role.MEMBER, LocalDateTime.now(),
                 memberJoinDTO.getEmail(), passwordEncoder.encode(memberJoinDTO.getPwd()),
-                memberJoinDTO.getNickname(), memberJoinDTO.getGender(),
-                memberJoinDTO.getYear(), memberJoinDTO.getMonth(), memberJoinDTO.getDay());
-//                memberJoinDTO.getNickname(), memberJoinDTO.getGender(), LocalDate.parse(memberJoinDTO.getBirth()));
+                memberJoinDTO.getNickname(), memberJoinDTO.getGender(), LocalDate.parse(memberJoinDTO.getBirth()));
 
         memberRepository.save(member);
     }
