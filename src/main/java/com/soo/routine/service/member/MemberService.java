@@ -37,7 +37,6 @@ public class MemberService {
     // 회원가입
     public void join(MemberJoinDTO memberJoinDTO) {
 
-        // 이메일 중복 처리
         // 패스워드 불일치 처리
         // 닉네임 중복 처리
 
@@ -48,21 +47,17 @@ public class MemberService {
         memberRepository.save(member);
     }
 
-//    try {
-//        memberService.validateDuplicateMemberEmail(memberJoinDTO);
-//    } catch (IllegalStateException e) {
-//        bindingResult.addError(new FieldError("memberJoinDTO", "email", "이미 존재하는 이메일입니다."));
-//    }
-//
-//    public Member join(MemberJoinDTO memberJoinDTO) throws Exception {
-//        if(this.isEmailExist(memberJoinDTO.getEmail())) {
-//            throw new Exception("이미 존재하는 이메일입니다.");
-//        }
+    // 이메일 중복 처리
+    public boolean isEmailExists(String email) {
+        return memberRepository.existsByEmail(email);
+    }
+
+
 //        Member member = memberJoinDTO.toEntity();
 //        member.hashPwd(passwordEncoder); // 비밀번호 암호화 후
 //        return memberRepository.save(member); // 회원 등록
 //    }
-//\
+//
 //    private boolean isEmailExist(String email) {
 //        Optional<Member> byEmail = memberRepository.findByEmail(email);
 //        return !byEmail.isEmpty();
