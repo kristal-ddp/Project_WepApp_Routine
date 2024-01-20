@@ -11,7 +11,9 @@ import java.util.*;
 public interface MemberRepository extends JpaRepository<Member, Long> {
 
     Optional<Member> findByEmail(String email);
-    boolean existsByEmail(String email); // 이메일 중복 체크
+    
+    boolean existsByEmail(String email); // 이메일 중복 처리
+    boolean existsByNickname(String nickname); // 닉네임 중복 처리
 
     Page<Member> findByRole(Role role, Pageable pageable);
 

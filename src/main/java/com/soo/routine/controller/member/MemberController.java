@@ -55,6 +55,11 @@ public class MemberController {
             bindingResult.rejectValue("email", "error.email", "이미 존재하는 이메일입니다.");
         }
 
+        // 닉네임 중복 처리
+        if(memberService.isNicknameExists(memberJoinDTO.getNickname())) {
+            bindingResult.rejectValue("nickname", "error.nickname", "이미 존재하는 닉네임입니다.");
+        }
+
         // 에러 처리
         if(bindingResult.hasErrors()){ // 검증 실패시
             model.addAttribute("memberJoinDTO", memberJoinDTO); // 입력 데이터 값을 유지

@@ -38,7 +38,6 @@ public class MemberService {
     public void join(MemberJoinDTO memberJoinDTO) {
 
         // 패스워드 불일치 처리
-        // 닉네임 중복 처리
 
         Member member = new Member(Role.MEMBER, LocalDateTime.now(),
                 memberJoinDTO.getEmail(), passwordEncoder.encode(memberJoinDTO.getPwd()),
@@ -50,6 +49,11 @@ public class MemberService {
     // 이메일 중복 처리
     public boolean isEmailExists(String email) {
         return memberRepository.existsByEmail(email);
+    }
+
+    // 닉네임 중복 처리
+    public boolean isNicknameExists(String nickname) {
+        return memberRepository.existsByNickname(nickname);
     }
 
 
@@ -74,21 +78,6 @@ public class MemberService {
 //            bindingResult.addError(new FieldError("memberJoinDTO", "pwd2", "패스워드가 일치하지 않습니다."));
 //        }
 
-    //닉네임 중복 체크
-//        try {
-//            memberService.validateDuplicateMemberNickname(memberJoinDTO);
-//        } catch (IllegalStateException e) {
-//            bindingResult.addError(new FieldError("memberJoinDTO", "nickname", "중복된 닉네임입니다"));
-//        }
-
-//        memberService.join(memberJoinDTO);
-
-    // 닉네임 중복 체크
-//    public void validateDuplicateMemberNickname(MemberJoinDTO memberJoinDTO) {
-//        if (memberRepository.findByNickname(memberJoinDTO.getNickname()).isPresent()) {
-//            throw new IllegalStateException();
-//        }
-//    }
     
     // 이메일과 비밀번호 일치 여부 체크
     // 회원탈퇴

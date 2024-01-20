@@ -4,10 +4,7 @@ import com.soo.routine.entity.member.Role;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
+import javax.validation.constraints.*;
 import java.time.LocalDateTime;
 
 @Getter
@@ -31,6 +28,7 @@ public class MemberJoinDTO {
     private String pwd2; // 비밀번호 확인
 
     @NotBlank(message="닉네임을 입력하세요.")
+    @Pattern(regexp = "^[a-zA-Z가-힣0-9]{2,10}$", message = "특수문자를 제외하고 2-10자로 입력하세요.")
     private String nickname; // 닉네임
 
     @NotBlank(message="성별을 선택하세요.")
