@@ -37,8 +37,6 @@ public class MemberService {
     // 회원가입
     public void join(MemberJoinDTO memberJoinDTO) {
 
-        // 패스워드 불일치 처리
-
         Member member = new Member(Role.MEMBER, LocalDateTime.now(),
                 memberJoinDTO.getEmail(), passwordEncoder.encode(memberJoinDTO.getPwd()),
                 memberJoinDTO.getNickname(), memberJoinDTO.getGender(), LocalDate.parse(memberJoinDTO.getBirth()));
@@ -57,29 +55,6 @@ public class MemberService {
     }
 
 
-//        Member member = memberJoinDTO.toEntity();
-//        member.hashPwd(passwordEncoder); // 비밀번호 암호화 후
-//        return memberRepository.save(member); // 회원 등록
-//    }
-//
-//    private boolean isEmailExist(String email) {
-//        Optional<Member> byEmail = memberRepository.findByEmail(email);
-//        return !byEmail.isEmpty();
-//    }
-//
-//    public void validateDuplicateMemberEmail(MemberJoinDTO memberJoinDTO) {
-//        if (memberRepository.findByEmail(memberJoinDTO.getEmail()).isPresent()) {
-//            throw new IllegalStateException();
-//        }
-//    }
-
-    //패스워드 일치 여부 체크
-//        if(!memberJoinDTO.getPwd().equals(memberJoinDTO.getPwd2())){
-//            bindingResult.addError(new FieldError("memberJoinDTO", "pwd2", "패스워드가 일치하지 않습니다."));
-//        }
-
-    
-    // 이메일과 비밀번호 일치 여부 체크
     // 회원탈퇴
     public Member checkPwd(String email, String pwd) {
         return memberRepository.findByEmail(email) // email로 회원을 조회하고

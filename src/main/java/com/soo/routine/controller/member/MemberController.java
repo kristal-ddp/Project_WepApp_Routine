@@ -48,7 +48,8 @@ public class MemberController {
 
     // 회원가입
     @PostMapping("join")
-    public String join(@Valid @ModelAttribute() MemberJoinDTO memberJoinDTO, BindingResult bindingResult, Model model){
+    public String join(@Valid @ModelAttribute()
+                           MemberJoinDTO memberJoinDTO, BindingResult bindingResult, Model model){
 
         // 이메일 중복 처리
         if(memberService.isEmailExists(memberJoinDTO.getEmail())) {
@@ -58,6 +59,11 @@ public class MemberController {
         // 닉네임 중복 처리
         if(memberService.isNicknameExists(memberJoinDTO.getNickname())) {
             bindingResult.rejectValue("nickname", "error.nickname", "이미 존재하는 닉네임입니다.");
+        }
+
+        // 비밀번호 불일치 처리
+        if(memberJoinDTO.getPwd2() != "" && !memberJoinDTO.getPwd().equals(memberJoinDTO.getPwd2())) {
+            bindingResult.rejectValue("pwd2", "error.pwd2", "비밀번호가 일치하지 않습니다.");
         }
 
         // 에러 처리
